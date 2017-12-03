@@ -1,3 +1,5 @@
+#include <sys/time.h>
+
 #ifndef PID_H
 #define PID_H
 
@@ -16,6 +18,12 @@ public:
   double Kp;
   double Ki;
   double Kd;
+
+  /*
+   * Persist some status
+   */
+  struct timeval last_tv;
+  bool is_initialized;
 
   /*
   * Constructor
